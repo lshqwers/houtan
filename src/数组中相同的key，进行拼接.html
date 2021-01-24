@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <script>
+
+            /*
+                ！可将变量转换成boolean类型，null、undefined和空字符串取反都为true，其余都为false。
+                !null=true
+                
+                !undefined=true
+                
+                !''=true
+                
+                !100=false
+                
+                !'abc'=false
+
+                ！！常常用来做类型判断，在第一步!（变量）之后再做逻辑取反运算，在js中新手常常会写这样臃肿的代码：
+                判断变量a为非空，未定义或者非空串才能执行方法体的内容。
+
+                var a;
+                if(a!=null&&typeof(a)!=undefined&&a!=''){
+                    //a有内容才执行的代码  
+                }
+
+                if(!!a){
+                    //a有内容才执行的代码...  
+                }
+            */
+             let arr= [
+                {fileName: "文档1", nodeId: "1133275924701949952"},
+                {fileName: "文档2", nodeId: "1133275743956807681"}, 
+                {fileName: "文档3",nodeId: "1133275683449434112"},
+                {fileName: "文档4", nodeId: "1133275743956807681"},
+                {fileName: "文档5", nodeId: "1133275683449434112"},
+                {fileName: "文档6",nodeId: "1133275924701949952"},
+                {fileName: "文档7", nodeId: "1133275924701949951"}
+            ]
+
+            // 定义一个对象来做存储判断
+            let haspMap = {}
+            arr.forEach((item)=>{
+                // 把对象中的fileName和nodeId给解构出来 => es6的解构赋值
+                let {fileName,nodeId} = item
+                // console.log(fileName,nodeId);
+                /*
+                  如果对应的id在对象中不村在的话,我们将nodeID作为fileName作为value
+                  fileName的值作为key, nodeId的值为value
+                  文档1: "1133275924701949952"
+                */
+                //  haspMap[nodeId]是它的key   
+                // console.log(haspMap[nodeId],'-----------')
+                if(!haspMap[nodeId]){
+                    haspMap[nodeId]=fileName;
+                }else{
+                    // 如果存在相同的nodeId,则把他们相拼接
+                    haspMap[nodeId]+=fileName
+                }
+            })
+             console.log(haspMap,Object.values(haspMap),'Object.values');
+             
+
+            /*
+               object.values(obj),返回一个数组,其元素在对象找到可枚举属性值,
+               属性的顺序于通过手动循环对象的属性值所给出的顺序相同
+               obj被返回可枚举属性值,
+               返回值一个包含对象自身的所有可枚举属性值的数组
+            */
+            var arrNew=[]
+            for(var i in haspMap){
+                // {1133275924701949952: "文档1文档6", 1133275743956807681: "文档2文档4", 1133275683449434112: "文档3文档5", 1133275924701949951: "文档7"}
+                // console.log(haspMap[i],'hasMap')
+                arrNew.push({fileName: haspMap[i], nodeId: i})
+                // arrNew.push(haspMap[i]) // 取出所有的值放在一个数组中
+            }
+            console.log(arrNew,"arrNew")
+
+            var obj = {id: 1, name: 'hg', number: 10}
+            console.log(obj['id'])
+        </script>
+</body>
+</html>

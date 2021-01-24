@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <script>
+            var arr = [
+                    {
+                        "industryCode":1,
+                        "industryName":"战略性新兴产业"
+                    },{
+                        "industryCode":2,
+                        "industryName":"现代服务业"
+                    },{
+                        "industryCode":3,
+                        "industryName":"先进制造和优势传统行业"
+                    },{
+                        "industryCode":4,
+                        "industryName":"轨道交通"
+                    },{
+                        "industryCode":5,
+                        "industryName":"道路机场港口"
+                    },{
+                        "industryCode":6,
+                        "industryName":"城市更新"
+                    },{
+                        "industryCode":7,
+                        "industryName":"社会民生"
+                    },{
+                        "industryCode":8,
+                        "industryName":"城市安全环境资源"
+                        }
+                                        ];
+                    var s=[1,2,4,8], newList = [], qwe = [], sumarr = []
+                    // arr.map((item)=>{
+                    //     if(qwe.indexOf(item.industryCode!==-1)){
+                    //         qwe.push(item)
+                    //     }
+                    // })
+                    
+                    arr.map((item)=>{
+                        s.map((item1)=>{
+                            if(item1==item.industryCode){
+                                newList.push(item)
+                            }
+                        })
+                    })
+
+                    console.log(newList)
+                    
+
+                    // arr.map((item)=>{
+                    //     s.map((item1)=>{
+                    //         if(item1==item.industryCode){
+                    //             qwe.push(item)
+                    //         }
+                    //     })
+                    // })
+
+                    // console.log(qwe)
+
+                    arr.forEach(item=>{ // 遍历 arr
+                        // 此处如果需要留下重复元素,则将!去掉即可
+                        // arr中的元素如果在ids中不存在,则添加到新数组中
+                        if(!s.includes(item.industryCode)){
+                           qwe.push(item)
+                        }
+                    })
+
+                    console.log(newList.concat(qwe))
+                    // for(var i=0;i<arr.length;i++){
+                    //     for(var j=0;j<s.length;j++){
+                    //         if(s[j]!=arr[i].industryCode){
+                    //             qwe.push(arr[i])
+                    //         }
+                    //     }
+                    // }
+                    // console.log(qwe)
+
+
+                    let ids = [1,2,3];
+                    let arr = [1,2,3,4];
+                    let newArray = [];
+                    arr.forEach(item => {  //遍历arr
+                    //此处如果需要留下重复元素,则将!去掉即可
+                    //arr中的元素如果在ids中不存在,则添加到新数组中
+                        if (!ids.includes(item)) { 
+                            newArray.push(item); 
+                        };
+                    })
+                    console.log(newArray); //结果为: [4]
+    </script>
+</body>
+</html>

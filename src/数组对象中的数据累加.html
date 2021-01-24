@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <script>
+          var arr = [
+              { name: '南山区', price: 100 },
+              { name: '罗湖区', price: 100 },
+              { name: '宝安区', price: 200 },
+              { name: '福田区', price: 150 },
+              { name: '南山区', price: 400 },
+              { name: '光明区', price: 100 },
+              { name: '宝安区', price: 200 },
+              { name: '罗湖区', price: 100 },
+              { name: '光明区', price: 100 },
+            ]
+            var obj = {}
+            var arr1 = []
+            arr.map((item)=>{
+                if(!obj[item.name]){
+                    // obj.name是给obj对向中加name属性
+                    // obj.name=item.name
+                    // obj.price=item.price // {name: "光明区", price: 100}
+                    // obj[item.name] 是给obj对象中key
+                    obj[item.name]=item.price
+                    // obj[item.price]=item.price // 这种是按照价格不同进行添加进去
+                }else {
+                    // {100: NaN, 200: NaN, 400: NaN, 南山区: 100, 罗湖区: 100, 宝安区: 200, 福田区: 150, 光明区: 100}
+                    // obj[item.price]+=item.price // obj[item.price]没有这个字段
+                    // 如果存在相同的nodeId,则把他们相拼接,则把他们的价格相加
+                    // arrMap[item.name] = arrMap[item.name] + item.number
+                    // console.log(obj[item.price],'q')
+                    // obj[item.name] =  obj[item.name]  + item.price
+                    // console.log(obj,item.name,obj[item.name],item.price ) 
+                    // 相同的name中的价格相加
+                    obj[item.name] = obj[item.name] + item.price // obj[item.name] = obj[item.name] + item.price
+                    // obj[item.name]+=item.price // obj[item.name] = obj[item.name] + item.price
+                   
+                }
+            })
+
+            /*
+                // {100: NaN, 200: NaN, 400: NaN, 南山区: 100, 罗湖区: 100, 宝安区: 200, 福田区: 150, 光明区: 100}
+                    obj[item.price]+=item.price
+            */
+            console.log(obj)
+
+            // {南山区: 500, 罗湖区: 200, 宝安区: 400, 福田区: 150, 光明区: 200} 得到了这个对象
+            for(var i in obj){
+                // console.log(obj,i,obj[i])
+                // push是数组得方法,不要乱用
+                arr1.push({name: i, price: obj[i]})
+            }
+            // console.log(arr1)
+      </script>
+</body>
+</html>

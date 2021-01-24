@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = [
+            { id: 1, name:'食品1', parentId: null },
+
+            { id: 2, name:'食品1-1', parentId: 1 },
+            { id: 3, name:'食品1-2', parentId: 1 },
+
+            { id: 4, name:'食品1-1-1', parentId: 2 },
+            { id: 5, name:'食品1-1-2', parentId: 2 },
+
+
+            { id: 6, name:'产品1', parentId: null },
+            { id: 7, name:'产品1-1', parentId: 6 },
+            { id: 8, name:'产品1-2', parentId: 6 },
+            { id: 9, name:'产品1-1-1', parentId: 7 },
+            { id: 10, name:'产品1-1-2', parentId: 7 },
+        ]
+
+        var arr1 = [
+            { id: 1, name:'食品1', parentId: null }, // 一级
+            
+            { id: 3, name:'食品1-2', parentId: 1 },
+
+            { id: 2, name:'食品1-1', parentId: 1 },  // 二级
+            
+            { id: 4, name:'食品1-1-1', parentId: 2 }, // 三级
+            { id: 5, name:'食品1-1-2', parentId: 2 },
+
+
+            { id: 6, name:'产品1', parentId: null }, // 一级
+
+            { id: 7, name:'产品1-1', parentId: 6 },  // 二级
+
+            { id: 9, name:'产品1-1-1', parentId: 7 }, // // 三级
+            { id: 10, name:'产品1-1-2', parentId: 7 },
+
+            { id: 8, name:'产品1-2', parentId: 6 },
+
+        ]
+
+
+        /*
+            data: [{
+                    label: '一级 1',
+                    children: [{
+                        label: '二级 1-1',
+                        children: [{
+                        label: '三级 1-1-1'
+                    }]
+                }]
+
+
+            data: [{
+                    label: '一级 1',
+                    children: [{
+                        label: '二级 1-1',
+                        children: [{
+                        label: '三级 1-1-1'
+                    }]
+                  }]
+                }]  
+        */
+       var obj = {}
+        var arr1 = []
+        var arrs= arr.map((item)=>{
+            // item.parentId === null
+            // if(item.parentId===null){
+            //     arr1.push({name : item["name"]})
+            // }
+            if(item.parentId===null){
+                // obj[item.name]=item.name
+                return item
+            }
+        })
+        console.log(arrs
+        )
+        for(val in obj){
+            console.log(val,"val")
+            arr1.push({})
+        }
+        // for(val in arr1)
+    </script>
+</body>
+</html>

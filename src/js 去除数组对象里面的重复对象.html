@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <script>
+            // indexOf数组去重
+            var arr1 = [1,2,3,4,3,5]
+            var arr =[]
+            // 一种用(filter)数组去重的第一种方法
+            var r = arr1.filter((item,index,self)=>{
+                // indexOf()总是返回第一个元素的位置
+                // 后续的重复元素位置与indexOf()返回的位置不相等,返回false
+                // console.log(self.indexOf(item));
+                    return self.indexOf(item)==index
+            
+            })
+            // console.log(r)
+            // 第二种用方法
+
+            var arrlist = [1,2,3,4,3,5]
+            var arrMap =[]
+            arrlist.map((item)=>{
+                if(arrMap.indexOf(item)==-1){
+                    arrMap.push(item)
+                }
+            })
+            // console.log(arrMap)
+
+            /*
+                js 合并两个数组，去除重复项，只留一个
+
+                aoxi0033 2011-03-10 16:18:00  195  收藏
+                版权
+                    //It's merge arr1 and arr2 , delete the same element only leave one
+                    //It's only apdapter array. If object, no.
+                    //The sequence of the two array is not required.
+                    mergeArray:function (arr1, arr2){
+                for (var i = 0 ; i < arr1.length ; i ++ ){
+                    for(var j = 0 ; j < arr2.length ; j ++ ){
+                    if (arr1[i] === arr2[j]){
+                        arr1.splice(i,1); //利用splice函数删除元素，从第i个位置，截取长度为1的元素
+                    }
+                    }
+                }
+                //alert(arr1.length)
+                for(var i = 0; i <arr2.length; i++){
+                arr1.push(arr2[i]);
+                }
+                return arr1;
+                }
+
+                另：前替是两个数组中的项没有重复，如果重复，将不能达到想要的效果
+
+                转载于:https://www.cnblogs.com/Denny_Yang/archive/2011/03/10/1979916.html
+
+
+                demo3:判断一个数组中是否包含另一个数组
+                let maxList = ['1', '2', '3', '4', '5']
+                    let minList = ['2', '3']
+                    let newList = minList.filter((val) => {
+                        return maxList.indexOf(val) > -1
+                    })
+                    if (newList.length == minList.length) {
+                    console.log("包含")
+                    } else {
+                    console.log("不包含")
+                }
+            */
+
+            let arrs = [
+                    {id:1, name:'test', status:'success'},
+                    {id:2, name:'dev', status:'success'},
+                    {id:3, name:'prod', status:'fail'},
+                    {id:4, name:'sand', status:'waiting'},
+                    {id:3, name:'box', status:'running'},
+                    {id:2, name:'dev', status:'success'}
+                ]
+ 
+                let arr2 = [];    // 存id
+                let newArr = [];  // 存新数组
+                // for in 用来遍历对象的
+                for(let i in arrs){
+                    if(arr2.indexOf(arrs[i].id)==-1){
+                        arr2.push(arrs[i].id)
+                        newArr.push(arrs[i])
+                    }
+                }
+                console.log(newArr,arr2,"newArr")
+
+
+        </script>
+</body>
+</html>

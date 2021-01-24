@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <script>
+            var maxList = ['1','2', '3', '4','5']
+            let minList  =  ['2','3']
+            var newList =  maxList.filter((item)=>{
+                return minList.indexOf(item)==-1 // 返回minList里找不到的数据给newList即去重
+            })
+            console.log(newList)
+
+
+            var r,arr=['apple','strawberry','banana','apple','orange','banana']
+            // r是返回去重后的新数组
+            r=arr.filter((ele,index,self)=>{
+                console.log(ele,index,self)
+                /*
+                   ele每个元素,index在数组中的索引(位置), self是自身的元素   indeof只返回元素在数组中第一次出现的位置,
+                   如果与元素的位置不一致,说明该元素在前面出现过,是重复元素。
+
+                */
+                return self.indexOf(ele)==index
+            })
+            console.log(r)
+         
+            // filter筛选出需要的数据
+            var menu_data =[
+                {
+                    "username": "test.cn.01",
+                    "password": "12345",
+                    "product": "ss"
+                },
+                {
+                    "username": "test.cn.01",
+                    "password": "12345",
+                    "product": "hf"
+                },
+                {
+                    "username": "test.cn.01",
+                    "password": "12345",
+                    "product": "tb"
+                }
+            ]
+            var screen=menu_data.filter((item)=>{
+                return item.product == 'tb'
+            })
+            console.log(screen)
+        </script>
+</body>
+</html>

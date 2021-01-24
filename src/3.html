@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <script>
+            var arr = [
+                {name: 'ls', number: 2},
+                {name: 'lsh', number: 2},
+                {name: 'lsj', number: 3},
+                {name: 'ls', number: 4},
+                {name: 'lj', number: 5},
+                {name: 'lj', number: 6},
+            ];
+            // var arr1 = [
+            //     {name: 'ls', number: 6},
+            //     {name: 'lsh', number: 2},
+            //     {name: 'lsj', number: 3},
+            //     {name: 'lj', number: 11},
+            // ]
+            const arrMap = {}
+            let arr1 = []
+            arr.forEach(item => {
+                if (!arrMap[item.name]) {
+                    arrMap[item.name] = item.number
+                    console.log(arrMap,"arrMap")
+                } else {
+                    arrMap[item.name] = arrMap[item.name] + item.number
+                }
+            })
+            console.log(arrMap.number)
+            let id = 1
+            for ( val in arrMap) {
+                console.log(val)
+                arr1.push({id: id,name: val, number:arrMap[val]})
+                id++
+            }
+    
+            console.log(arr1)
+            
+            </script>
+</body>
+</html>

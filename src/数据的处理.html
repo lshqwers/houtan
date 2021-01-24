@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <script>
+            var arr = [
+                {id:1,name:'ls',number:10},
+                {id:2,name:'lsh',number:20},
+                {id:3,name:'ls',number:30},
+                {id:4,name:'rr',number:40},
+                {id:5,name:'rr',number:50},
+            ]
+            var arr2=[1,2,3,5];
+            var arr3=[];
+            for(i=0;i<arr.length;i++){
+                for(j=0;j<arr2.length;j++){
+                    // if(arr[i].id==arr2[j]){
+                    //     arr3.push(arr[i])
+                    // }
+                    // console.log(arr2[j])
+                    if(arr2[j]==arr[i].id){
+                        arr3.push(arr[i])
+                    }
+                }
+            }
+            console.log(arr3);
+
+            // 类似于数组的去重,可以使用indexOf,include, lastIndexOf,find等 这里只用indexOf实现一下
+            // let arr1 = []; // 存储name
+            // let newArr = [] // 存新数组
+            // for(let i in arr){
+            //     // arr1不存在相同的key的值,把它添加到数组中
+            //     if(arr1.indexOf(arr[i].name==-1)){
+            //         console.log(arr[i].name)
+            //         // arr1.push(arr[i].name);
+            //         // newArr.push(arr[i])
+            //     }
+            // }
+            // console.log(arr1)
+
+
+            /*
+                数据的处理是相同的name的值,number数量进行累加
+                var arr1 = [
+                   {id:1,name:'ls',number:40},
+                   {id:2,name:'lsh',number:20},
+                   {id:4,name:'rr',number:90},
+                ]
+            */
+
+            // var obj ={}
+            // var arr1= []
+            // arr.map((item)=>{
+            //     if(arr1.indexOf(item.name)==-1){
+            //         arr1.push(item.name)
+            //     }
+            // })
+            // var arrRepeat =[], arrdifferent = []
+            // var aa3=arr.map((item)=>{
+                // if()
+                // console.log( typeof arr1.join(' ').toString());
+                // if(arr1.join(' ').toString().indexOf(item.name)!==-1){
+                //     arrRepeat.push(item.name)
+                // }else{
+                //     arrdifferent.push(item.name)
+                // }
+            // })
+            // console.log(arrRepeat,arrRepeat,aa3)
+
+            // console.log(arr1) // ["ls", "lsh", "rr"]
+    
+            // var arr2=arr.filter((item1)=>{
+            //     // if(item.name==arr)
+            //     arr1.map((item)=>{
+            //         // console.log(item1.name,item)
+            //         if(item==item1.name){
+            //             arr3.push({'name': item1.name, 'number': item1.number})
+            //         }
+            //     })
+            // })
+            // var arr3=[]
+            // for(var i=0;i<arr.length;i++){
+            //     for(var j=0;j<arr1.length;j++){
+            //         if(arr1[j]==arr[i].name){
+            //             // console.log(arr[i].name)
+            //             arr3.push({name: arr[i].name, number: arr[i].number})
+            //         }
+            //     }
+            // }
+            // console.log(arr3)
+        </script>
+</body>
+</html>
