@@ -36,7 +36,7 @@ export default {
   name: 'Home',
   methods: {
     logout () {
-      // 清空sessionStorage,跳转到登入页面
+      // 清空sessionStorage,跳转到登入页面 git branch是查看当前的分支  把dev-login合并到当前的主分支,切换到要合并的分支,在那个分支进行合并
       window.sessionStorage.clear()
       this.$router.push('/login')
     }
